@@ -1,7 +1,6 @@
 
 "use client"
 
-import * as React from 'react';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -11,14 +10,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { Building2, Trees, CircleDot } from 'lucide-react';
-
 interface Amenity {
   id: string;
   name: string;
-  imageSrc: string | null;
-  gradient?: string;
-  Icon?: React.ElementType;
+  imageSrc: string;
 }
 
 const amenities: Amenity[] = [
@@ -35,9 +30,7 @@ const amenities: Amenity[] = [
   {
     id: '3',
     name: 'Clubhouse',
-    imageSrc: null,
-    gradient: 'from-slate-600 to-slate-900',
-    Icon: Building2,
+    imageSrc: '/images/clubhouse.png',
   },
   {
     id: '4',
@@ -46,17 +39,13 @@ const amenities: Amenity[] = [
   },
   {
     id: '5',
-    name: 'Garden',
-    imageSrc: null,
-    gradient: 'from-emerald-700 to-green-900',
-    Icon: Trees,
+    name: 'Jogging Track',
+    imageSrc: '/images/jogging track.png',
   },
   {
     id: '6',
     name: 'Tennis Court',
-    imageSrc: null,
-    gradient: 'from-amber-700 to-orange-900',
-    Icon: CircleDot,
+    imageSrc: '/images/tennis-track.png',
   },
 ];
 
@@ -85,20 +74,12 @@ export function AmenitiesSection() {
                 >
                   <Card className="overflow-hidden rounded-xl shadow-lg transition-shadow hover:shadow-2xl">
                     <CardContent className="relative aspect-[4/3] p-0">
-                      {amenity.imageSrc ? (
-                        <Image
-                          src={amenity.imageSrc}
-                          alt={amenity.name}
-                          fill
-                          className="object-cover rounded-xl transition-transform duration-300 hover:scale-105"
-                        />
-                      ) : (
-                        <div className={`w-full h-full bg-gradient-to-br ${amenity.gradient} rounded-xl flex flex-col items-center justify-center gap-3`}>
-                          {amenity.Icon && (
-                            <amenity.Icon className="h-14 w-14 text-white/70" />
-                          )}
-                        </div>
-                      )}
+                      <Image
+                        src={amenity.imageSrc}
+                        alt={amenity.name}
+                        fill
+                        className="object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+                      />
                       {/* Amenity label */}
                       <div className="absolute bottom-3 left-0 bg-background/85 text-foreground px-4 py-2 rounded-tr-xl rounded-br-xl text-sm font-semibold shadow-md">
                         {amenity.name}
