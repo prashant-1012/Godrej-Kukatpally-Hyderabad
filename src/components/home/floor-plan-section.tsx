@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Lock } from 'lucide-react';
+import { Lock, IndianRupee } from 'lucide-react';
 
 const floorPlans = [
   {
@@ -82,7 +82,10 @@ export function FloorPlanSection({ onOpenEnquirePopup }: FloorPlanSectionProps) 
                 <div className="flex flex-col items-center text-center p-6 flex-grow">
                   <h3 className="text-xl font-bold text-primary mb-1">{plan.config}</h3>
                   <p className="text-sm text-muted-foreground mb-3">{plan.area}</p>
-                  <p className="text-3xl font-bold text-custom-gold mb-6">&#8377; {plan.price}</p>
+                  <p className="text-3xl font-bold text-custom-gold mb-6 flex items-center justify-center">
+                    <IndianRupee className="h-7 w-7 mr-0.5 shrink-0" />
+                    {plan.price}
+                  </p>
                   <Button
                     onClick={onOpenEnquirePopup}
                     className="w-full bg-custom-gold hover:bg-custom-gold/90 text-primary-foreground rounded-lg px-6 py-3 text-sm shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 mt-auto"

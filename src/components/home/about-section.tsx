@@ -26,7 +26,7 @@ const stats = [
 
 export function AboutSection() {
   return (
-    <section className="py-16 sm:py-24 bg-background overflow-hidden">
+    <section id="about" className="py-16 sm:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
