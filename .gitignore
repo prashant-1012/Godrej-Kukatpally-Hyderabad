@@ -47,8 +47,9 @@ firestore-debug.log
 # project docs / planning (internal only)
 /docs
 
-# sensitive credentials (use env vars in production)
-src/config/site.ts
+# sensitive credentials — keep tracked so Vercel deploy includes it
+# TODO: move to environment variables and re-add to gitignore
+# src/config/site.ts
 
 # misc generated files
 .modified

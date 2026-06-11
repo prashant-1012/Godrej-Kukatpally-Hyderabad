@@ -9,21 +9,21 @@ const floorPlans = [
   {
     config: '3 BHK Premium',
     area: '1600–1900 Sq. Ft.',
-    price: '₹ 2.11 Cr*',
+    price: '2.11 Cr*',
     image: '/images/floorplan-3bhk-premium.png',
     alt: '3 BHK Premium floor plan — Godrej Kukatpally',
   },
   {
     config: '3 BHK Luxe',
     area: '2000–2100 Sq. Ft.',
-    price: '₹ 2.75 Cr*',
+    price: '2.75 Cr*',
     image: '/images/floorplan-3bhk-luxe.png',
     alt: '3 BHK Luxe floor plan — Godrej Kukatpally',
   },
   {
     config: '4 BHK + Maid',
     area: '3200 Sq. Ft.',
-    price: '₹ 4.40 Cr*',
+    price: '4.40 Cr*',
     image: '/images/floorplan-4bhk-maid.png',
     alt: '4 BHK + Maid floor plan — Godrej Kukatpally',
   },
@@ -82,7 +82,7 @@ export function FloorPlanSection({ onOpenEnquirePopup }: FloorPlanSectionProps) 
                 <div className="flex flex-col items-center text-center p-6 flex-grow">
                   <h3 className="text-xl font-bold text-primary mb-1">{plan.config}</h3>
                   <p className="text-sm text-muted-foreground mb-3">{plan.area}</p>
-                  <p className="text-3xl font-bold text-custom-gold mb-6">{plan.price}</p>
+                  <p className="text-3xl font-bold text-custom-gold mb-6">&#8377; {plan.price}</p>
                   <Button
                     onClick={onOpenEnquirePopup}
                     className="w-full bg-custom-gold hover:bg-custom-gold/90 text-primary-foreground rounded-lg px-6 py-3 text-sm shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 mt-auto"
