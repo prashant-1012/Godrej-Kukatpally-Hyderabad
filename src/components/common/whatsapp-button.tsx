@@ -17,7 +17,7 @@ const WhatsAppIcon = () => (
 );
 
 export function WhatsAppButton() {
-  const whatsappLink = "https://wa.link/11nmcf";
+  const whatsappLink = "https://wa.me/919999999999?text=Hi%20I%20am%20interested%20in%20your%20Godrej%20Kukatpally%20project%2C%20Please%20share%20details.";
 
   return (
     <Link

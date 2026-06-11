@@ -58,7 +58,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="text-xs text-primary-foreground/50">
-          <p>All Rights Reserved. &copy; 2025 Method &amp; Madness Technology Pvt. Ltd</p>
+          <p>All Rights Reserved. &copy; 2026 Godrej Kukatpally</p>
         </div>
 
       </div>

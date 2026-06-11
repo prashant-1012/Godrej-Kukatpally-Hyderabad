@@ -12,8 +12,8 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose 
 const navLinksConfig = [
   { href: '/#overview', label: 'Overview', icon: Home },
   { href: '/#floor-plan', label: 'Floor Plan & Pricing', icon: LayoutDashboard },
-  { href: '/#location', label: 'Location', icon: MapPin },
   { href: '/#amenities', label: 'Amenities', icon: Wifi },
+  { href: '/#location', label: 'Location', icon: MapPin },
   { href: '/#gallery', label: 'Gallery', icon: Images },
 ];
 
@@ -26,22 +26,37 @@ export function Header({ onOpenEnquirePopup }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      const currentLink = navLinksConfig.find(link => link.href.endsWith(hash));
-      if (currentLink) {
-        setActiveLink(currentLink.label);
-      } else if (hash === '' || hash === '#') {
-         const overviewLink = navLinksConfig.find(link => link.label === 'Overview');
-         if (overviewLink) setActiveLink(overviewLink.label);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const matched = navLinksConfig.find(
+              (l) => l.href.split('#')[1] === entry.target.id
+            );
+            if (matched) setActiveLink(matched.label);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -85% 0px', threshold: 0 }
+    );
+
+    navLinksConfig.forEach(({ href }) => {
+      const id = href.split('#')[1];
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    // When scrolled to the very bottom, keep the last nav item active
+    const handleScroll = () => {
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 60) {
+        setActiveLink(navLinksConfig[navLinksConfig.length - 1].label);
       }
     };
-
-    window.addEventListener('hashchange', handleHashChange, false);
-    handleHashChange(); 
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener('hashchange', handleHashChange, false);
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 

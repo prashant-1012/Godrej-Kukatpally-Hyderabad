@@ -137,8 +137,8 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
               <Image
                 src="/images/logo.png"
                 alt="Godrej Kukatpally Logo"
-                width={110}
-                height={38}
+                width={180}
+                height={62}
                 className="object-contain"
               />
               <p className="text-xs text-muted-foreground mt-2 text-center">
