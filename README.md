@@ -1,10 +1,10 @@
 # Godrej Kukatpally, Hyderabad — Real Estate Landing Page
 
-A high-conversion real estate landing page for **Godrej Kukatpally**, a pre-launch luxury residential project in Kukatpally, Hyderabad. Built and managed by **Mojo Realty**, an authorized channel partner of Godrej Properties.
+A high-conversion real estate landing page for **Godrej Kukatpally**, a pre-launch luxury residential project in Kukatpally, Hyderabad. Built and managed by **Prop Mission Private Limited**, an authorized channel partner of Godrej Properties.
 
 ## Live Preview
 
-[godrej-kukatpally-hyderabad.vercel.app](https://godrej-kukatpally-hyderabad-git-main-prashant-1012s-projects.vercel.app)
+[godrej-kukatpally-hyderabad-gamma.vercel.app](https://godrej-kukatpally-hyderabad-gamma.vercel.app/)
 
 ---
 
@@ -26,8 +26,8 @@ A high-conversion real estate landing page for **Godrej Kukatpally**, a pre-laun
 - Lead capture popup with country code selector, configuration dropdown, and consent checkbox
 - Floor plan section with blur-gated images (click to enquire)
 - Amenities section with image cards and gradient fallbacks
-- Gallery with lightbox, keyboard navigation, and thumbnail strip
-- Location advantage section with tabbed proximity data (connectivity, schools, hospitals, malls, business hubs)
+- Gallery as a sliding carousel with lightbox, keyboard navigation, and thumbnail strip
+- Location advantage section with map and tabbed proximity data side-by-side (connectivity, schools, hospitals, malls, business hubs)
 - About Godrej Properties section with legacy stats
 - Fully responsive across mobile, tablet, and desktop
 - SEO-optimized meta title and description
@@ -36,7 +36,7 @@ A high-conversion real estate landing page for **Godrej Kukatpally**, a pre-laun
 
 ## Tech Stack
 
-- **Framework**: Next.js 16 (App Router)
+- **Framework**: Next.js 16.2.9 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS + shadcn/ui (Radix UI)
 - **AI / Server Actions**: Google Genkit + Gemini
@@ -109,7 +109,7 @@ npm run build     # Production build
 
 ## Pending
 
-- Replace Google Maps embed `src` in `src/app/page.tsx` with the actual property embed URL
+- Replace Google Maps embed `src` in `src/components/home/location-tabs-section.tsx` with the actual property embed URL
 - Add RERA registration number once available
 - Move credentials in `src/config/site.ts` to environment variables
 - Google Sheets columns: add `configuration` and `consent` fields when ready
