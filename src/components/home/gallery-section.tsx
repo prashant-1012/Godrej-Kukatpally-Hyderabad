@@ -5,6 +5,13 @@ import { useState, useCallback, useEffect } from 'react';
 import Image from 'next/image';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, X, ZoomIn } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 
 const galleryImages = [
   { src: '/images/gallery-1.png', alt: 'Godrej Kukatpally — Tower Render' },
@@ -53,36 +60,47 @@ export function GallerySection() {
         </h2>
         <div className="h-1 w-20 bg-custom-gold mx-auto mb-12 animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out delay-100" />
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-          {galleryImages.map((img, index) => (
-            <div
-              key={img.src}
-              className="group relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg cursor-pointer animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out hover:shadow-2xl transition-shadow"
-              style={{ animationDelay: `${index * 100}ms` }}
-              onClick={() => openLightbox(index)}
-              role="button"
-              aria-label={`View ${img.alt}`}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/20 backdrop-blur-sm rounded-full p-3">
-                  <ZoomIn className="h-6 w-6 text-white" />
+        {/* Carousel */}
+        <Carousel
+          opts={{ align: 'start', loop: true }}
+          className="w-full animate-in fade-in slide-in-from-bottom-8 duration-500 ease-out delay-150"
+        >
+          <CarouselContent className="-ml-2 md:-ml-4">
+            {galleryImages.map((img, index) => (
+              <CarouselItem
+                key={img.src}
+                className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3"
+              >
+                <div
+                  className="group relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg cursor-pointer animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out hover:shadow-2xl transition-shadow"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                  onClick={() => openLightbox(index)}
+                  role="button"
+                  aria-label={`View ${img.alt}`}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/20 backdrop-blur-sm rounded-full p-3">
+                      <ZoomIn className="h-6 w-6 text-white" />
+                    </div>
+                  </div>
+                  {/* Image counter badge */}
+                  <div className="absolute top-3 right-3 bg-black/50 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {index + 1} / {galleryImages.length}
+                  </div>
                 </div>
-              </div>
-              {/* Image counter badge */}
-              <div className="absolute top-3 right-3 bg-black/50 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {index + 1} / {galleryImages.length}
-              </div>
-            </div>
-          ))}
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-[-15px] sm:left-[-20px] md:left-[-25px] top-1/2 -translate-y-1/2 z-10 h-10 w-10 bg-foreground/60 hover:bg-foreground/80 text-background border-none" />
+          <CarouselNext className="absolute right-[-15px] sm:right-[-20px] md:right-[-25px] top-1/2 -translate-y-1/2 z-10 h-10 w-10 bg-foreground/60 hover:bg-foreground/80 text-background border-none" />
+        </Carousel>
 
         <p className="text-xs text-muted-foreground text-center mt-6">
           *All images are for representational purposes only.

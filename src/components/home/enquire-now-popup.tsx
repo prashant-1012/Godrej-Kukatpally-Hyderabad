@@ -28,7 +28,7 @@ const countryCodes = [
 const configurations = [
   { value: '3bhk-premium', label: '3 BHK Premium - 2.11 CR*' },
   { value: '3bhk-luxe',    label: '3 BHK Luxe - 2.75 CR*' },
-  { value: '4bhk-maid',   label: '4 BHK + Maid - On Request' },
+  { value: '4bhk-maid',   label: '4 BHK + Maid - 4.40 CR*' },
 ];
 
 interface EnquireNowPopupProps {
@@ -142,7 +142,7 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
                 className="object-contain"
               />
               <p className="text-xs text-muted-foreground mt-2 text-center">
-                Presented by <span className="font-semibold text-foreground">Mojo Realty</span> – Authorized Channel Partner of Godrej Properties
+                Presented by <span className="font-semibold text-foreground">Prop Mission Private Limited</span> – Authorized Channel Partner of Godrej Properties
               </p>
             </div>
 

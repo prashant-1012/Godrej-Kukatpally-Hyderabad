@@ -3,14 +3,6 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 import { cn } from '@/lib/utils';
 
 interface LocationItem {
@@ -96,78 +88,82 @@ interface LocationTabsSectionProps {
 
 export function LocationTabsSection({ onOpenEnquirePopup }: LocationTabsSectionProps) {
   const [activeTab, setActiveTab] = useState(locationData[0].title);
+  const activeCategory = locationData.find((c) => c.title === activeTab)!;
 
   return (
-    <section className="py-16 sm:py-20 bg-background overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl animate-in fade-in slide-in-from-bottom-10 duration-700 ease-out">
-        <Tabs 
-          value={activeTab} 
-          onValueChange={setActiveTab} 
-          className="w-full"
-        >
-          {/* Mobile Dropdown */}
-          <div className="md:hidden mb-6">
-            <Select value={activeTab} onValueChange={setActiveTab}>
-              <SelectTrigger className="w-full py-2.5 h-auto text-sm font-semibold text-custom-gold border-custom-gold shadow-sm focus:ring-custom-gold/80">
-                <SelectValue placeholder="Select a category" />
-              </SelectTrigger>
-              <SelectContent>
-                {locationData.map((category) => (
-                  <SelectItem key={category.title} value={category.title} className="text-sm">
-                    {category.title}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+    <section id="location" className="py-16 sm:py-24 bg-secondary/50 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Heading */}
+        <h2 className="font-headline text-3xl sm:text-4xl font-bold text-primary text-center mb-3 animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out">
+          Godrej Kukatpally, Location Advantage
+        </h2>
+        <div className="h-1 w-20 bg-custom-gold mx-auto mb-12 animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out delay-100" />
+
+        {/* Two-column layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch animate-in fade-in slide-in-from-bottom-8 duration-500 ease-out delay-150">
+
+          {/* Left — Map */}
+          <div className="rounded-xl overflow-hidden shadow-xl border border-border h-[420px] lg:h-auto">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3805.4326!2d78.3990!3d17.4840!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb93d1b4e6e44f%3A0x6dc6c5bde72beee4!2sKukatpally%2C+Hyderabad%2C+Telangana!5e0!3m2!1sen!2sin!4v1"
+              className="w-full h-full min-h-[420px]"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Google Map of Godrej Kukatpally, Hyderabad"
+            />
           </div>
 
-          {/* Desktop TabsList */}
-          <TabsList className="hidden md:grid grid-cols-2 gap-x-2 gap-y-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 w-full bg-transparent p-0 mb-12">
-            {locationData.map((category) => (
-              <TabsTrigger
-                key={category.title}
-                value={category.title}
-                className={cn(
-                  "px-3 py-2.5 text-xs sm:text-sm font-semibold rounded-lg shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring ring-offset-background transition-all w-full h-auto",
-                  activeTab === category.title
-                    ? "bg-card text-custom-gold border border-custom-gold scale-105 z-10"
-                    : "bg-custom-gold text-primary-foreground hover:bg-custom-gold/90"
-                )}
-              >
-                {category.title}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          {/* Right — Tabs */}
+          <div className="flex flex-col bg-card rounded-xl shadow-xl border border-border overflow-hidden">
 
-          {/* Shared Content Area */}
-          {locationData.map((category) => (
-            <TabsContent
-              key={category.title}
-              value={category.title}
-              className="bg-card text-card-foreground p-6 md:p-8 rounded-xl shadow-xl border border-border mt-0"
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
-                {category.items.map((item, idx) => (
-                  <div key={idx} className="flex items-center">
-                    <span className="h-2.5 w-2.5 bg-custom-gold rounded-full mr-3 shrink-0"></span>
-                    <span className="text-sm text-foreground">{item.name} – {item.distance}</span>
+            {/* Tab buttons */}
+            <div className="flex flex-wrap gap-2 p-4 border-b border-border bg-secondary/30">
+              {locationData.map((category) => (
+                <button
+                  key={category.title}
+                  onClick={() => setActiveTab(category.title)}
+                  className={cn(
+                    "px-3 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-all",
+                    activeTab === category.title
+                      ? "bg-custom-gold text-primary-foreground shadow-md scale-105"
+                      : "bg-background text-foreground border border-border hover:border-custom-gold hover:text-custom-gold"
+                  )}
+                >
+                  {category.title}
+                </button>
+              ))}
+            </div>
+
+            {/* Tab content */}
+            <div className="flex-1 p-5 overflow-y-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
+                {activeCategory.items.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <span className="mt-1.5 h-2 w-2 bg-custom-gold rounded-full shrink-0" />
+                    <span className="text-sm text-foreground">
+                      {item.name}
+                      <span className="ml-1 text-xs text-muted-foreground font-medium">— {item.distance}</span>
+                    </span>
                   </div>
                 ))}
               </div>
-            </TabsContent>
-          ))}
-        </Tabs>
-        <div className="text-center mt-10 animate-in fade-in slide-in-from-bottom-6 duration-500 ease-out delay-200">
-          <Button
-            onClick={onOpenEnquirePopup}
-            size="lg"
-            className="bg-custom-gold hover:bg-custom-gold/90 text-primary-foreground rounded-lg shadow-md px-8 transition-transform hover:scale-105"
-          >
-            Request Location Details
-          </Button>
+            </div>
+
+            {/* CTA */}
+            <div className="p-4 border-t border-border text-center">
+              <Button
+                onClick={onOpenEnquirePopup}
+                className="bg-custom-gold hover:bg-custom-gold/90 text-primary-foreground rounded-lg shadow-md px-8 transition-transform hover:scale-105"
+              >
+                Request Location Details
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
