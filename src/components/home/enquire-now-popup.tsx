@@ -229,7 +229,7 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
                   <a href="/privacy-policy" target="_blank" className="underline text-foreground hover:text-custom-gold">Privacy Policy</a>
                   {' '}and{' '}
                   <a href="/terms-of-use" target="_blank" className="underline text-foreground hover:text-custom-gold">Terms & Conditions</a>
-                  {' '}and consent to be contacted by Mojo Realty via Phone/WhatsApp regarding this property.
+                  {' '}and consent to be contacted by Prop Mission Private Limited via Phone/WhatsApp regarding this property.
                 </Label>
               </div>
 
