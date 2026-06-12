@@ -111,7 +111,7 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
           <div className="w-full md:w-[220px] bg-secondary/40 p-6 md:p-8 flex flex-col justify-center items-center text-center order-2 md:order-1">
             <h3 className="text-lg font-semibold text-foreground mb-1 mt-4 md:mt-0">WE PROMISE</h3>
             <div className="w-10 h-0.5 bg-custom-gold mb-6 mx-auto" />
-            <ul className="space-y-6">
+            <ul className="flex flex-row justify-around w-full md:flex-col md:space-y-6 gap-2">
               <li className="flex flex-col items-center">
                 <Headphones className="h-8 w-8 text-custom-gold mb-1.5" />
                 <span className="text-xs font-medium text-foreground">INSTANT</span>
@@ -246,7 +246,7 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
 
             {/* Footer trust bar */}
             <div className="mt-5 pt-4 border-t border-border">
-              <div className="flex flex-col sm:flex-row justify-around text-xs text-foreground gap-2">
+              <div className="flex flex-row flex-wrap justify-around text-xs text-foreground gap-2">
                 <div className="flex items-center justify-center">
                   <CheckCircle2 className="h-4 w-4 text-custom-gold mr-1.5 shrink-0" />
                   <span>Available Units</span>
