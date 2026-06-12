@@ -11,7 +11,7 @@ import { AmenitiesSection } from '@/components/home/amenities-section';
 import { EnquireNowPopup } from '@/components/home/enquire-now-popup';
 import { LocationTabsSection } from '@/components/home/location-tabs-section';
 import { GallerySection } from '@/components/home/gallery-section';
-import { AboutSection } from '@/components/home/about-section';
+// import { AboutSection } from '@/components/home/about-section';
 
 
 export default function Home() {
@@ -93,7 +93,7 @@ export default function Home() {
 
         <LocationTabsSection onOpenEnquirePopup={openEnquirePopup} />
         <GallerySection />
-        <AboutSection />
+        {/* <AboutSection /> */}
 
       </main>
       <Footer />

@@ -30,16 +30,19 @@ export function Footer() {
         </div>
 
         {/* RERA Info */}
-        <div className="mb-6 text-xs text-primary-foreground/75 font-semibold">
+        <div className="mb-6 text-xs text-primary-foreground/75 font-semibold space-y-1.5">
           <p>RERA No: Coming Soon &nbsp;|&nbsp; Project RERA No. – Coming Soon</p>
+          <p>
+            <span className="text-custom-gold">https://rera.telangana.gov.in</span>
+          </p>
         </div>
 
         {/* Footer Links */}
         <div className="mb-6 text-sm font-semibold flex justify-center items-center flex-wrap gap-x-4 gap-y-2">
-          <Link href="/about-us" className="text-primary-foreground/80 hover:text-custom-gold hover:underline transition-colors">
+          {/* <Link href="/about-us" className="text-primary-foreground/80 hover:text-custom-gold hover:underline transition-colors">
             About Us
           </Link>
-          <span className="text-primary-foreground/40 hidden sm:inline">|</span>
+          <span className="text-primary-foreground/40 hidden sm:inline">|</span> */}
           <Link href="/privacy-policy" className="text-primary-foreground/80 hover:text-custom-gold hover:underline transition-colors">
             Privacy Policy
           </Link>
@@ -47,10 +50,10 @@ export function Footer() {
           <Link href="/terms-of-use" className="text-primary-foreground/80 hover:text-custom-gold hover:underline transition-colors">
             Terms & Conditions
           </Link>
-          <span className="text-primary-foreground/40 hidden sm:inline">|</span>
+          {/* <span className="text-primary-foreground/40 hidden sm:inline">|</span>
           <Link href="/contact-info" className="text-primary-foreground/80 hover:text-custom-gold hover:underline transition-colors">
             Contact Info
-          </Link>
+          </Link> */}
         </div>
 
         {/* Divider */}
