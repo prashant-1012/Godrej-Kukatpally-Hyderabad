@@ -108,22 +108,22 @@ export function EnquireNowPopup({ isOpen, onOpenChange }: EnquireNowPopupProps) 
       >
         <div className="flex flex-col md:flex-row">
           {/* Left Pane */}
-          <div className="w-full md:w-[220px] bg-secondary/40 p-6 md:p-8 flex flex-col justify-center items-center text-center order-2 md:order-1">
-            <h3 className="text-lg font-semibold text-foreground mb-1 mt-4 md:mt-0">WE PROMISE</h3>
-            <div className="w-10 h-0.5 bg-custom-gold mb-6 mx-auto" />
+          <div className="w-full md:w-[220px] bg-secondary/40 p-3 md:p-8 flex flex-col justify-center items-center text-center order-2 md:order-1">
+            <h3 className="text-lg font-semibold text-foreground mb-1 mt-1 md:mt-0">WE PROMISE</h3>
+            <div className="w-10 h-0.5 bg-custom-gold mb-2 md:mb-6 mx-auto" />
             <ul className="flex flex-row justify-around w-full md:flex-col md:space-y-6 gap-2">
               <li className="flex flex-col items-center">
-                <Headphones className="h-8 w-8 text-custom-gold mb-1.5" />
+                <Headphones className="h-5 w-5 md:h-8 md:w-8 text-custom-gold mb-0.5 md:mb-1.5" />
                 <span className="text-xs font-medium text-foreground">INSTANT</span>
                 <span className="text-xs font-medium text-foreground">CALL BACK</span>
               </li>
               <li className="flex flex-col items-center">
-                <Car className="h-8 w-8 text-custom-gold mb-1.5" />
+                <Car className="h-5 w-5 md:h-8 md:w-8 text-custom-gold mb-0.5 md:mb-1.5" />
                 <span className="text-xs font-medium text-foreground">FREE</span>
                 <span className="text-xs font-medium text-foreground">SITE VISIT</span>
               </li>
               <li className="flex flex-col items-center">
-                <IndianRupee className="h-8 w-8 text-custom-gold mb-1.5" />
+                <IndianRupee className="h-5 w-5 md:h-8 md:w-8 text-custom-gold mb-0.5 md:mb-1.5" />
                 <span className="text-xs font-medium text-foreground">UNMATCHED</span>
                 <span className="text-xs font-medium text-foreground">PRICE</span>
               </li>
