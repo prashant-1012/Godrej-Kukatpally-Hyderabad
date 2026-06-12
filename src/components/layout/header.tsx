@@ -4,7 +4,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
-import { Home, LayoutDashboard, Wifi, MapPin, Images, /* Info, */ Menu } from 'lucide-react';
+import { Home, LayoutDashboard, Wifi, MapPin, Images, Info, Menu } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from '@/components/ui/sheet';
@@ -15,7 +15,7 @@ const navLinksConfig = [
   { href: '/#amenities', label: 'Amenities', icon: Wifi },
   { href: '/#location', label: 'Location', icon: MapPin },
   { href: '/#gallery', label: 'Gallery', icon: Images },
-  // { href: '/#about', label: 'About Us', icon: Info },
+  { href: '/#about', label: 'About Us', icon: Info },
 ];
 
 interface HeaderProps {
