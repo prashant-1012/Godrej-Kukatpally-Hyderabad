@@ -70,7 +70,7 @@ export function Header({ onOpenEnquirePopup }: HeaderProps) {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/#overview" className="flex items-center shrink-0" onClick={() => handleNavLinkClick('Overview')}>
+          <Link href="/" className="flex items-center shrink-0" onClick={() => handleNavLinkClick('Overview')}>
             <Image
               src="/images/logo.png"
               alt="Godrej Kukatpally Logo"
